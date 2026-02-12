@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Khalid ❤️ Lamiss</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+<style>
+body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(#ffe0ec,#fff);overflow:hidden;font-family:'Amiri',serif;}
+.card{text-align:center}
+.teddy{width:230px;animation:bounce 2s infinite;}
+h1{color:#ff3f82}
+.buttons{display:flex;gap:15px;justify-content:center}
+button{border:none;padding:12px 28px;border-radius:30px;font-size:18px;cursor:pointer;}
+#yes{background:#ff6fa5;color:white}
+#no{background:#eee}
+.share{background:#25D366;color:white;margin-top:12px}
+.heart,.petal,.spark,.firework{position:absolute;animation:float 6s linear infinite;}
+@keyframes float{from{transform:translateY(100vh);opacity:1}to{transform:translateY(-10vh);opacity:0}}
+@keyframes bounce{50%{transform:translateY(-10px)}}
+.popup{position:fixed;inset:0;background:#00000066;display:none;justify-content:center;align-items:center;}
+.letter{background:white;padding:25px;border-radius:20px;max-width:300px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="card">
+<img class="teddy" src="lamiss.jpeg">
+<h1>Khalid ❤️ Lamiss</h1>
+<h1>Will you be my Valentine? 💖</h1>
+<div class="buttons">
+<button id="yes">Yes 💕</button>
+<button id="no">No 💔</button>
+</div>
+<button class="share" onclick="share()">Share on WhatsApp 💬</button>
+</div>
+<div class="popup" id="popup">
+<div class="letter">
+<h2>Lamiss 💕</h2>
+<p>From Khalid 💌<br><br>You are my favorite person in this world.<br>My heart chose you forever 🐻🌹</p>
+<button onclick="closePop()">Close 💖</button>
+</div>
+</div>
+<audio id="music" autoplay loop>
+<source src="https://assets.mixkit.co/music/preview/mixkit-romantic-piano-669.mp3">
+</audio>
+<script>
+const no=document.getElementById("no");
+const yes=document.getElementById("yes");
+const popup=document.getElementById("popup");
+no.addEventListener("mouseover",()=>{
+no.style.position="absolute";
+no.style.left=Math.random()*80+"%";
+no.style.top=Math.random()*80+"%";
+});
+yes.onclick=()=>{
+popup.style.display="flex";
+fireworks();
+};
+function closePop(){popup.style.display="none"}
+function share(){window.open("https://wa.me/?text=Lamiss 💕 Khalid made you a Valentine page 💖")}
+function create(type,emoji){
+let e=document.createElement("div");
+e.className=type;
+e.innerHTML=emoji;
+e.style.left=Math.random()*100+"vw";
+document.body.appendChild(e);
+setTimeout(()=>e.remove(),6000);
+}
+function fireworks(){
+for(let i=0;i<30;i++){
+setTimeout(()=>create("firework","✨"),i*100);
+}
+}
+setInterval(()=>create("heart","💗"),400);
+setInterval(()=>create("petal","🌸"),900);
+setInterval(()=>create("spark","✨"),1200);
+</script>
+</body>
+</html>
